@@ -1,0 +1,66 @@
+  :root{
+    --color-P : darkred;
+    --color-S : white;
+    --color-A : rgb(255, 230, 0);
+  }
+  
+  .colorP{
+    color: var(--color-P);
+  }
+  
+  
+  /* NAVBAR */
+  .colorNavbar{
+      background-color: var(--color-P) ;
+      
+}
+
+
+.navScrolled{
+    /* PERCHE' NON FUNZIONA???? */
+    margin: 5vh 15vw;
+    border: 1px solid var(--color-A);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);  
+    background-color:  rgba(139, 0, 0, 0.7);
+}
+
+/* HEADER */
+.colorHeader{
+    background-color: var(--color-P);
+
+}
+
+*{font-family: "Zen Kaku Gothic Antique", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  }
+
+  .titleFont{font-family: "Ojuju", sans-serif;
+  font-style: normal;
+  }
+
+.boxText{
+    height: 25vw;
+}
+
+/* CATEGORIE */
+.imgCategory{
+    width: 100%;
+    border-radius: 50%;
+    border: 2px solid var(--color-P);
+    padding: 5px;
+}
+
+/* SEZIONE NUMERI */
+.boxNumeri{
+    height: 150px;
+    background-color: var(--color-P);
+    border-radius: 20px;
+    border: 2px solid black;
+    color: var(--color-S);
+}
+
+.transition{
+transition: 0.7s;
+}
