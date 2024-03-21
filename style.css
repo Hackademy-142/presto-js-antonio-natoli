@@ -41,7 +41,18 @@
     min-height: 400px;
     
   }
+
+
+  /* ULTIMI ANNUNCI */
+  .card:hover > div > .imgCard{
+    transform: scale(1.5);
+  }
   
+  .imgCard{
+    transition: .7s;
+  }
+
+
   /* CATEGORIE */
   .imgCategory{
     width: 100%;

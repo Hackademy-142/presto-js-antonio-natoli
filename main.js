@@ -61,3 +61,41 @@ let announcements = [
     {name: "Quadro di Buddha", categoria: "Arredamento", prezzo: 350, img: "https://picsum.photos/203"},
     {name: "Guqin", categoria: "Musica", prezzo: 1000, img: "https://picsum.photos/204"},
 ];
+
+let cardsWrapper = document.querySelector("#cardWrapper")
+
+announcements.forEach((annuncio, i )=>{
+    if (i >= announcements.length - 3) {
+        let column = document.createElement("div");
+        column.classList.add("col-11", "col-lg-3", "my-3")
+        column.innerHTML = `
+        
+        <div class="card position-relative h-100">
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger z-2">
+        NEW
+        </span>
+        <div class="overflow-hidden">
+        <img src=${annuncio.img} class="card-img-top imgCard" alt="">
+        </div>
+        <div class="card-body d-flex flex-column justify-content-between ">
+        <h4 class="card-title fw-bold text-center">${annuncio.name}</h4>
+        <p class="card-text">Categoria: <span class="fs-4">${annuncio.categoria}</span></p>
+        <p class="card-text">Prezzo: <span class="fs-4">${annuncio.prezzo}</span>€</p>
+        </div>
+        <div class="d-flex justify-content-between">
+        <i class="bi bi-heart fs-3"></i>
+        <a href="#" class="btn btn-success">Aggiungi al Carrello</a>
+        </div>
+        </div>
+        `
+        cardsWrapper.appendChild(column)
+    }
+})
+
+
+
+
+
+
+
+
