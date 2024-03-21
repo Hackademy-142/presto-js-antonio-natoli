@@ -29,7 +29,24 @@ function creaIntervallo (idElemento, finalNum, frequenza){
     }, frequenza);
 }
 
+// INTERSECTION OBSERVER NUMERI DINAMCI
 
-creaIntervallo(numArticles, 500, 10)
-creaIntervallo(numUsers, 1000, 0.5)
-creaIntervallo(numComments, 200, 20)
+let sonoIntersecato = false ;
+
+
+const intersectionObv = new IntersectionObserver((entries)=>{
+    entries.forEach((entry)=>{ 
+        if (entry.isIntersecting && sonoIntersecato == false){
+            
+            creaIntervallo(numArticles, 500, 8)
+            creaIntervallo(numUsers, 1000, 0.5)
+            creaIntervallo(numComments, 200, 20)
+            sonoIntersecato = true;
+            setTimeout (()=>{
+                sonoIntersecato = false;
+            }, 10000 );   
+        }
+    })
+})
+
+intersectionObv.observe(numArticles)
