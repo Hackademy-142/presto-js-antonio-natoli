@@ -50,3 +50,14 @@ const intersectionObv = new IntersectionObserver((entries)=>{
 })
 
 intersectionObv.observe(numArticles)
+
+
+// ULTIMI ANNUNCI
+
+let announcements = [
+    {name: "Katana di Hattori Hanzo", categoria: "Accessori", prezzo: 500, img: "https://picsum.photos/200"},
+    {name: "Vaso Ming", categoria: "Arredamento", prezzo: 700, img: "https://picsum.photos/201"},
+    {name: "Statua di terracotta", categoria: "Arredamento", prezzo: 650, img: "https://picsum.photos/202"},
+    {name: "Quadro di Buddha", categoria: "Arredamento", prezzo: 350, img: "https://picsum.photos/203"},
+    {name: "Guqin", categoria: "Musica", prezzo: 1000, img: "https://picsum.photos/204"},
+];
