@@ -71,7 +71,31 @@ fetch("./articoli.JSON").then((response)=> response.json()).then((data)=>{
             })
         }
         setCategories()
-        
+
+        // FILTRO PER CATEGORIA
+
+        let checksInput = document.querySelectorAll(".form-check-input")
+
+        function filterByCategory(){
+            let radiosBtn = Array.from(checksInput)
+            let checked =  radiosBtn.find( (el)=> el.checked)
+            if (checked.id == "all") {
+                createCards(data)
+            } else{
+                let filtered = data.filter ((el)=> el.categoria == checked.id)
+                createCards(filtered)
+            }
+        }
+
+
+        // EVENTO CLICK RADIO BUTTON 
+        checksInput.forEach((input)=>{
+            input.addEventListener("click", ()=>{
+                filterByCategory()
+            })
+        })
+
+
     // FINE FETCH 
     })
     
