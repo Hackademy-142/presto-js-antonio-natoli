@@ -95,6 +95,34 @@ fetch("./articoli.JSON").then((response)=> response.json()).then((data)=>{
             })
         })
 
+        // RANGE MIN AND MAX PRICES
+        let inputPrice = document.querySelector("#inputPrice")
+        let currentValue = document.querySelector("#currentValue")  
+
+        function findMaxAndMinPrice (){
+            let prices = data.map ((articolo)=>articolo.prezzo)
+            let max = Math.max(...prices)
+            let min = Math.min(...prices)
+            inputPrice.max = max
+            inputPrice.min = min
+            inputPrice.value = max
+            currentValue.innerHTML = max
+        }
+        findMaxAndMinPrice()
+      
+        // FILTRA PER PREZZO
+
+        function filterByPrice(){
+            let filtered = data.filter ((el)=> el.prezzo <= inputPrice.value)
+            createCards(filtered)
+        }
+
+        inputPrice.addEventListener("input",()=>{
+            currentValue.innerHTML = inputPrice.value
+            filterByPrice()
+        })
+
+
 
     // FINE FETCH 
     })
