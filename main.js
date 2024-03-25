@@ -64,6 +64,7 @@ let announcements = [
 
 let cardsWrapper = document.querySelector("#cardWrapper")
 
+function CreateCards(){
 announcements.forEach((annuncio, i )=>{
     if (i >= announcements.length - 3) {
         let column = document.createElement("div");
@@ -91,7 +92,8 @@ announcements.forEach((annuncio, i )=>{
         cardsWrapper.appendChild(column)
     }
 })
-
+}
+CreateCards()
 
 
 
