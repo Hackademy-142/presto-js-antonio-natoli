@@ -123,6 +123,19 @@ fetch("./articoli.JSON").then((response)=> response.json()).then((data)=>{
         })
 
 
+        // FILTRA PER PAROLA
+
+        let inputWord = document.querySelector("#inputWord")
+
+        function filterByWord(){
+            let filtered = data.filter ((el)=>el.nome.toLowerCase().includes(inputWord.value.toLowerCase()) )
+            createCards(filtered)
+        }
+
+        inputWord.addEventListener("input",()=>{
+            filterByWord()
+        })
+
 
     // FINE FETCH 
     })
