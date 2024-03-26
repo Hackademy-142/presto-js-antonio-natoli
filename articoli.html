@@ -68,12 +68,14 @@
     <div class="container-fluid my-5">
         <div class="row">
             <div class="col-12 my-5">
-                <h2 class="titleFont colorP display-1 text-center border-bottom">ARTICOLI</h2>
+                
             </div>
             
             <!-- COLONNA FILTRI -->
             <div class="col-12 col-lg-4">
-                <h2 class="text-center">FILTRO PER CATEGORIA</h2>
+                <h2 class="titleFont colorP display-1 text-center border-bottom">FILTRI</h2>
+                <div class="boxFiltri">
+                <h2 class="titleFont colorP border-bottom">FILTRO PER CATEGORIA</h2>
                 <div id="radioWrapper">
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="flexRadioDefault" id="all" checked>
@@ -82,19 +84,21 @@
                         </label>
                     </div>
                 </div>
-                <h2 class="text-center">FILTRO PER PREZZO</h2>
-                <label for="customRange1" class="form-label"><span id="currentValue">€</span></label>
+                <h2 class="titleFont colorP border-bottom">FILTRO PER PREZZO</h2>
+                <label for="customRange1" class="form-label"></label>
                 <input type="range" class="form-range" id="inputPrice" max="" min="" value="">
-                <h2 class="text-center">FILTRO PER PAROLA
+                <span id="currentValue">€</span>
+                <h2 class="titleFont colorP border-bottom mb-4">FILTRO PER PAROLA
                 </h2>
                 <div class="mb-3">
                     <input type="text" class="form-control" id="inputWord" aria-describedby="emailHelp">
                   </div>
-
+                </div>
             </div>
             
             <!-- COLONNA ARTICOLI -->
             <div class="col-12 col-lg-8">
+                <h2 class="titleFont colorP display-1 text-center border-bottom">ARTICOLI</h2>
                 <!-- GRID ARTICOLI -->
                 <div class="container-fluid">
                     <div class="row justify-content-evenly" id="articlesWrapper">

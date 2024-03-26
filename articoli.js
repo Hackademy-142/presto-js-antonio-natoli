@@ -34,7 +34,7 @@ fetch("./articoli.JSON").then((response)=> response.json()).then((data)=>{
                 </div>
                 <div class="d-flex justify-content-between">
                 <i class="bi bi-heart fs-3"></i>
-                <a href="#" class="btn btn-success">Aggiungi al Carrello</a>
+                <a href="#" class="btn btn-sm btn-success">Aggiungi al Carrello</a>
                 </div>
                 </div>
                 </div>
