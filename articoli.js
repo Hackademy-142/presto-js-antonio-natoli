@@ -23,10 +23,11 @@ fetch("./articoli.JSON").then((response)=> response.json()).then((data)=>{
                 let column = document.createElement("div");
                 column.classList.add("col-11", "col-lg-3", "my-3", "mx-1")
                 column.innerHTML = `
+                <div class="card h-100">
                 <div class="overflow-hidden">
-                <img src="https://picsum.photos/20${i} "class="card-img-top imgCard" alt="">
+                <img src="https://picsum.photos/20${i} "class="card-img-top imgCard alt="">
                 </div>
-                <div class="card-body d-flex flex-column justify-content-between ">
+                <div class="card-body d-flex flex-column justify-content-between border-1">
                 <h4 class="card-title fw-bold text-center text-truncate">${articolo.nome}</h4>
                 <p class="card-text">Categoria: <span class="fs-5">${articolo.categoria}</span></p>
                 <p class="card-text">Prezzo: <span class="fs-4">${articolo.prezzo}</span>€</p>
@@ -34,6 +35,7 @@ fetch("./articoli.JSON").then((response)=> response.json()).then((data)=>{
                 <div class="d-flex justify-content-between">
                 <i class="bi bi-heart fs-3"></i>
                 <a href="#" class="btn btn-success">Aggiungi al Carrello</a>
+                </div>
                 </div>
                 </div>
                 `
@@ -76,14 +78,14 @@ fetch("./articoli.JSON").then((response)=> response.json()).then((data)=>{
 
         let checksInput = document.querySelectorAll(".form-check-input")
 
-        function filterByCategory(){
+        function filterByCategory(array){
             let radiosBtn = Array.from(checksInput)
             let checked =  radiosBtn.find( (el)=> el.checked)
             if (checked.id == "all") {
-                createCards(data)
+                return array
             } else{
                 let filtered = data.filter ((el)=> el.categoria == checked.id)
-                createCards(filtered)
+                return filtered
             }
         }
 
@@ -91,7 +93,7 @@ fetch("./articoli.JSON").then((response)=> response.json()).then((data)=>{
         // EVENTO CLICK RADIO BUTTON 
         checksInput.forEach((input)=>{
             input.addEventListener("click", ()=>{
-                filterByCategory()
+               globalFilter()
             })
         })
 
@@ -112,14 +114,14 @@ fetch("./articoli.JSON").then((response)=> response.json()).then((data)=>{
       
         // FILTRA PER PREZZO
 
-        function filterByPrice(){
-            let filtered = data.filter ((el)=> el.prezzo <= inputPrice.value)
-            createCards(filtered)
+        function filterByPrice(array){
+            let filtered = array.filter ((el)=> el.prezzo <= inputPrice.value)
+            return filtered
         }
 
         inputPrice.addEventListener("input",()=>{
             currentValue.innerHTML = inputPrice.value
-            filterByPrice()
+            globalFilter()
         })
 
 
@@ -127,14 +129,23 @@ fetch("./articoli.JSON").then((response)=> response.json()).then((data)=>{
 
         let inputWord = document.querySelector("#inputWord")
 
-        function filterByWord(){
-            let filtered = data.filter ((el)=>el.nome.toLowerCase().includes(inputWord.value.toLowerCase()) )
-            createCards(filtered)
+        function filterByWord(array){
+            let filtered = array.filter ((el)=>el.nome.toLowerCase().includes(inputWord.value.toLowerCase()) )
+            return filtered
         }
 
         inputWord.addEventListener("input",()=>{
-            filterByWord()
+            globalFilter()
         })
+
+
+    //    GLOBAL FILTER 
+    function globalFilter(){
+        let filteredByCategory = filterByCategory(data)
+        let filteredByPrice = filterByPrice (filteredByCategory)
+        let filteredByWord = filterByWord (filteredByPrice)
+        createCards(filteredByWord)
+    }
 
 
     // FINE FETCH 
